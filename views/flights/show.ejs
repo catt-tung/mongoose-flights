@@ -19,13 +19,34 @@
     <div>Departure Date: </div>
     <div><%= flight.departs %></div>
   </section>
-  <h2>Tickets</h2>
+  <h2>Current Tickets</h2>
+    <% if (flight.tickets.length) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Seat</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% flight.tickets.forEach(function(ticket) { %>
+            <tr>
+              <td><%= ticket.seat %> </td>
+              <td><%= ticket.price %> </td>
+            </tr>
+          <% }) %> 
+        </tbody>
+      </table>
+    <% } else { %>
+      <h3>You have no tickets for this flight yet</h3>
+    <% } %> 
+  <h2>Add Tickets</h2>
   <form
     id="add-tickets"
     action="/flights/<%= flight._id %>/tickets"
     method="POST"
     <label for="seat-input">Seat:</label>
-    <input name="seat" id="seat-input" required pattern="[A-F][1-9]\d">
+    <input name="seat" id="seat-input" required pattern="[A-F][1-9]\d?">
     <label for="price-input">Price:</label>
     <input name="price" id="price-input" min="0">
     <button type="submit">Add Ticket</button>
