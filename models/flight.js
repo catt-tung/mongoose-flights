@@ -19,9 +19,9 @@ const flightSchema = new Schema({
   departs: {
     type: Date,
     default: function() {
-      return new Date().getDate()
-      //need to add a year and get only the date without the time
-    } 
+      return new Date(new Date().setFullYear(new Date().getFullYear() + 1))
+      //have not tested this ^ as Atlas is not working
+    }
   }
 })
 
