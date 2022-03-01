@@ -29,6 +29,7 @@ const flightSchema = new Schema({
 })
 
 const Flight = mongoose.model('Flight', flightSchema)
+const Ticket = mongoose.model('Ticket', ticketSchema)
 
 export {
   Flight

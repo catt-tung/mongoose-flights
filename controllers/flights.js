@@ -53,6 +53,22 @@ function createTicket(req, res) {
   })
 }
 
+function deleteTicket(req, res){
+  console.log("before function", req.params.ticketId)
+  Flight.findById(req.params.id, function(err, flight) {
+    let index = 0;
+    flight.tickets.forEach(ticket => {
+      if (ticket._id === req.params.ticketId) {
+        index = flight.tickets.indexOf(ticket)
+      }
+    })
+    flight.tickets.splice(index, 1)
+    flight.save(function(err) {
+      res.redirect(`/flights/${flight._id}`)
+    })
+})
+}
+
 export {
   index,
   newFlight as new,
@@ -60,4 +76,5 @@ export {
   show,
   deleteFlight as delete,
   createTicket,
+  deleteTicket,
 }
