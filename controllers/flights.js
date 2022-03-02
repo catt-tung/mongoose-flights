@@ -5,6 +5,7 @@ function index(req, res) {
     res.render('flights/index', {
       error: error,
       flights: flights,
+      title: "All Flights",
     })
   })
 }
@@ -13,7 +14,10 @@ function newFlight(req, res) {
   const newFlight = new Flight();
   const dt = newFlight.departs;
   const departsDate = dt.toISOString().slice(0, 16);
-  res.render('flights/new', {departsDate})
+  res.render('flights/new', {
+    departsDate,
+    title: "Add Flight"
+  })
 }
 
 function create (req, res) {
