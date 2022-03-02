@@ -1,8 +1,8 @@
 import { Flight } from "../models/flight.js"
 
 function index(req, res) {
-  Flight.find({}, function (error, flights) {
-    res.render('flights/index', {
+  Flight.find({}).sort({departs: 'asc'}).exec ((error, flights) => {
+    res.render("flights/", {
       error: error,
       flights: flights,
       title: "All Flights",
