@@ -39,9 +39,19 @@
         </tbody>
       </table>
     <% } else { %>
-      <h3>You have no tickets for this flight yet</h3>
+      <h4>You have no tickets for this flight yet</h4>
     <% } %> 
     </section>
+  <h2>Current Meals</h2>
+  <% if (flight.meals.length) { %>
+    <ul>
+      <% flight.meals.forEach(meal => { %>
+        <li><%= meal.name %> </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <h4>You have no meals for this flight yet</h4>
+  <% } %> 
   <h2>Add Tickets</h2>
   <form
     id="add-tickets"
@@ -53,5 +63,16 @@
     <input name="price" id="price-input" min="0">
     <button type="submit">Add Ticket</button>
   </form>
+  <h2>Add Meals</h2>
+  <p>
+    <form id="add-meal-to-flight" action="/flights/<%= flight._id %>/meals" method="POST">
+      <select name="mealId">
+        <% meals.forEach(function(meal) { %>
+          <option value="<%= meal._id %>"><%= meal.name %></option>
+        <% }) %>
+      </select>
+      <button type="submit">Add Meal</button>
+    </form>
+  </p>
 </body>
 </html>

@@ -26,6 +26,7 @@ const flightSchema = new Schema({
     default: Date.now() + 365*24*60*60000
   },
   tickets: [ticketSchema],
+  meals: [{type: Schema.Types.ObjectId, ref: "Meal"}]
 })
 
 const Flight = mongoose.model('Flight', flightSchema)
