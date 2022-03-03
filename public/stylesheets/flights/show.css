@@ -1,8 +1,8 @@
 .flight-info {
   display: grid;
   grid-template-columns: auto auto;
-  margin: 0px 60px 0px 60px;
-  padding: 20px;
+  margin: 0em 20em 0em 20em;
+  padding: 1.5em 0.1em 1.5em 1.5em;
   background-color: rgba(240, 248, 255, 0.438);
   text-align: left;
   border-radius: 10px;
@@ -40,7 +40,7 @@ table {
 }
 
 .add {
-  margin: 20px 40px 10px 40px;
+  margin: 5em 20em 2em 20em;
   padding-bottom: 10px;
   display: flex;
   flex-direction: column;
