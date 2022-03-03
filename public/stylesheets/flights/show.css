@@ -1,0 +1,50 @@
+.flight-info {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin: 0px 60px 0px 60px;
+  padding: 20px;
+  background-color: rgba(240, 248, 255, 0.438);
+  text-align: left;
+  border-radius: 10px;
+}
+
+.current-tickets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table {
+  background-color: rgba(218, 230, 240, 0.438);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.current-meals {
+  text-align: center;
+}
+
+.current-meals > ul {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+#meals-list {
+  display: inline-block;
+  background-color: rgba(240, 248, 255, 0.438);
+  padding: 0px 15px 0px 10px;
+  text-align: left;
+  border-radius: 10px;
+}
+
+.add {
+  margin: 20px 40px 10px 40px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 248, 220, 0.564);
+  border-radius: 10px;
+}

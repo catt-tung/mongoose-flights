@@ -1,11 +1,11 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="/stylesheets/flights/show.css">
 <%- include('../partials/nav') %>
 
 </head>
 <body>
   <h1><%= title %></h1>
-  <section>
+  <section class="flight-info">
     <div>Airline: </div>
     <div><%= flight.airline %></div>
     <div>Airport: </div>
@@ -15,8 +15,8 @@
     <div>Departure Date: </div>
     <div><%= flight.departs %></div>
   </section>
-  <h2>Current Tickets</h2>
   <section class="current-tickets">
+    <h2>Current Tickets</h2>
     <% if (flight.tickets.length) { %>
       <table>
         <thead>
@@ -30,7 +30,7 @@
           <% flight.tickets.forEach(function(ticket) { %>
             <tr>
               <td><%= ticket.seat %> </td>
-              <td><%= ticket.price %> </td>
+              <td>$<%= ticket.price %> </td>
               <td>
                 <form action="/flights/<%= flight._id %>/<%= ticket._id %>?_method=DELETE" method="POST"><button>X</button></form>
               </td>
@@ -41,38 +41,43 @@
     <% } else { %>
       <h4>You have no tickets for this flight yet</h4>
     <% } %> 
-    </section>
-  <h2>Current Meals</h2>
-  <% if (flight.meals.length) { %>
-    <ul>
-      <% flight.meals.forEach(meal => { %>
-        <li><%= meal.name %> </li>
-      <% }) %>
-    </ul>
-  <% } else { %>
-    <h4>You have no meals for this flight yet</h4>
-  <% } %> 
-  <h2>Add Tickets</h2>
-  <form
-    id="add-tickets"
-    action="/flights/<%= flight._id %>/tickets"
-    method="POST"
-    <label for="seat-input">Seat:</label>
-    <input name="seat" id="seat-input" required pattern="[A-F][1-9]\d?">
-    <label for="price-input">Price:</label>
-    <input name="price" id="price-input" min="0">
-    <button type="submit">Add Ticket</button>
-  </form>
-  <h2>Add Meals</h2>
-  <p>
-    <form id="add-meal-to-flight" action="/flights/<%= flight._id %>/meals" method="POST">
-      <select name="mealId">
-        <% meals.forEach(function(meal) { %>
-          <option value="<%= meal._id %>"><%= meal.name %></option>
-        <% }) %>
-      </select>
-      <button type="submit">Add Meal</button>
+  </section>
+  <section class="current-meals">
+    <h2>Current Meals</h2>
+    <div id="meals-list">
+      <% if (flight.meals.length) { %>
+        <ul>
+          <% flight.meals.forEach(meal => { %>
+            <li><%= meal.name %> </li>
+          <% }) %>
+        </ul>
+      <% } else { %>
+        <h4>You have no meals for this flight yet</h4>
+      <% } %>
+    </div>
+  </section>
+  <section class="add">
+    <h2>Add Tickets</h2>
+    <form
+      id="add-tickets"
+      action="/flights/<%= flight._id %>/tickets"
+      method="POST"
+      <label for="seat-input">Seat:</label>
+      <input name="seat" id="seat-input" required pattern="[A-F][1-9]\d?">
+      <label for="price-input">Price (USD):</label>
+      <input name="price" id="price-input" min="0">
+      <button type="submit">Add Ticket</button>
     </form>
-  </p>
+    <h2>Add Meals</h2>
+    <form id="add-meal-to-flight" action="/flights/<%= flight._id %>/meals" method="POST">
+        <select name="mealId">
+          <% meals.forEach(function(meal) { %>
+            <option value="<%= meal._id %>"><%= meal.name %></option>
+          <% }) %>
+        </select>
+        <button type="submit">Add Meal</button>
+    </form>
+  </br>
+  </section>
 </body>
 </html>
