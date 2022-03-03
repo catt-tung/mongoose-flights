@@ -1,0 +1,33 @@
+div {
+  margin: 15px;
+}
+
+table {
+  table-layout: auto;
+  padding: 10px 30px 10px 40px;
+  width: 100%;
+  background-color: rgba(227, 238, 238, 0.475);
+  border-radius: 10px;
+  box-shadow: -3px 3px 4px 1.5px rgba(102, 205, 171, 0.762);
+}
+
+thead th:nth-child(5) {
+  text-align: center;
+}
+
+thead th:nth-child(6) {
+  text-align: center;
+}
+
+tbody td:nth-child(5) {
+  text-align: center;
+}
+
+tbody tr:nth-child(odd){
+  background-color: rgba(115, 198, 170, 0.303);
+}
+
+tbody td:nth-child(6) {
+  text-align: center;
+}
+

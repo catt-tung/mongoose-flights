@@ -1,15 +1,18 @@
 <%- include('../partials/html-head') %>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/flights/index.css">
   <%- include('../partials/nav') %>
 <body>
   <h1>All Flights</h1>
+  <div>
   <table>
     <thead>
       <tr>
         <th>Airline</th>
         <th>Airport</th>
-        <th>Flight Number</th>
+        <th>Flight No.</th>
         <th>Departure Date</th>
+        <th>More</th>
+        <th>Remove</th>
       </tr>
     </thead>
     <tbody>
@@ -27,5 +30,6 @@
       <% }) %>
     </tbody>
   </table>
+</div>
 </body>
 </html>
